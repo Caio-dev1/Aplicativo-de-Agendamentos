@@ -1,0 +1,244 @@
+{
+  "agendamentos": [
+    {
+      "id": 1,
+      "Nome": "Consulta médica",
+      "Data": "2025-05-21",
+      "Hora": "09:00",
+      "Descrição": "Consulta de rotina com o clínico geral",
+      "Status": "C"
+    },
+    {
+      "id": 2,
+      "Nome": "Reunião de trabalho",
+      "Data": "2025-05-22",
+      "Hora": "14:00",
+      "Descrição": "Reunião com a equipe de marketing",
+      "Status": "A"
+    },
+    {
+      "id": 3,
+      "Nome": "Dentista",
+      "Data": "2025-05-23",
+      "Hora": "11:30",
+      "Descrição": "Consulta com dentista para limpeza",
+      "Status": "C"
+    },
+    {
+      "id": 4,
+      "Nome": "Entrega de projeto",
+      "Data": "2025-05-24",
+      "Hora": "16:00",
+      "Descrição": "Prazo final para entrega do projeto X",
+      "Status": "E"
+    },
+    {
+      "id": 5,
+      "Nome": "Aula de inglês",
+      "Data": "2025-05-25",
+      "Hora": "19:00",
+      "Descrição": "Aula online de conversação em inglês",
+      "Status": "A"
+    },
+    {
+      "id": 6,
+      "Nome": "Consulta veterinária",
+      "Data": "2025-05-26",
+      "Hora": "08:00",
+      "Descrição": "Consulta de rotina do cachorro",
+      "Status": "C"
+    },
+    {
+      "id": 7,
+      "Nome": "Manutenção do carro",
+      "Data": "2025-05-27",
+      "Hora": "10:00",
+      "Descrição": "Troca de óleo e revisão geral",
+      "Status": "A"
+    },
+    {
+      "id": 8,
+      "Nome": "Entrevista de emprego",
+      "Data": "2025-05-28",
+      "Hora": "13:00",
+      "Descrição": "Entrevista para vaga de desenvolvedor",
+      "Status": "E"
+    },
+    {
+      "id": 9,
+      "Nome": "Reunião familiar",
+      "Data": "2025-05-29",
+      "Hora": "18:00",
+      "Descrição": "Jantar com família",
+      "Status": "C"
+    },
+    {
+      "id": 10,
+      "Nome": "Treino na academia",
+      "Data": "2025-05-30",
+      "Hora": "07:00",
+      "Descrição": "Treino de musculação",
+      "Status": "A"
+    },
+    {
+      "id": 11,
+      "Nome": "Consulta psicóloga",
+      "Data": "2025-06-01",
+      "Hora": "15:00",
+      "Descrição": "Sessão semanal com psicóloga",
+      "Status": "C"
+    },
+    {
+      "id": 12,
+      "Nome": "Pagamento de contas",
+      "Data": "2025-06-02",
+      "Hora": "12:00",
+      "Descrição": "Pagamento das contas mensais",
+      "Status": "A"
+    },
+    {
+      "id": 13,
+      "Nome": "Compra de supermercado",
+      "Data": "2025-06-03",
+      "Hora": "17:00",
+      "Descrição": "Comprar mantimentos para a semana",
+      "Status": "E"
+    },
+    {
+      "id": 14,
+      "Nome": "Consulta cardiologista",
+      "Data": "2025-06-04",
+      "Hora": "09:30",
+      "Descrição": "Exames cardiológicos de rotina",
+      "Status": "C"
+    },
+    {
+      "id": 15,
+      "Nome": "Reunião com cliente",
+      "Data": "2025-06-05",
+      "Hora": "11:00",
+      "Descrição": "Apresentação do projeto ao cliente",
+      "Status": "A"
+    },
+    {
+      "id": 16,
+      "Nome": "Vacinação",
+      "Data": "2025-06-06",
+      "Hora": "10:30",
+      "Descrição": "Vacinação anual contra gripe",
+      "Status": "C"
+    },
+    {
+      "id": 17,
+      "Nome": "Treinamento corporativo",
+      "Data": "2025-06-07",
+      "Hora": "14:00",
+      "Descrição": "Treinamento sobre novas ferramentas",
+      "Status": "A"
+    },
+    {
+      "id": 18,
+      "Nome": "Consulta oftalmologista",
+      "Data": "2025-06-08",
+      "Hora": "13:30",
+      "Descrição": "Revisão da visão",
+      "Status": "C"
+    },
+    {
+      "id": 19,
+      "Nome": "Reunião de equipe",
+      "Data": "2025-06-09",
+      "Hora": "16:30",
+      "Descrição": "Planejamento da sprint",
+      "Status": "A"
+    },
+    {
+      "id": 20,
+      "Nome": "Conserto do computador",
+      "Data": "2025-06-10",
+      "Hora": "09:00",
+      "Descrição": "Levar para manutenção",
+      "Status": "E"
+    },
+    {
+      "id": 21,
+      "Nome": "Consulta nutricionista",
+      "Data": "2025-06-11",
+      "Hora": "08:30",
+      "Descrição": "Avaliação nutricional mensal",
+      "Status": "C"
+    },
+    {
+      "id": 22,
+      "Nome": "Revisão do carro",
+      "Data": "2025-06-12",
+      "Hora": "11:00",
+      "Descrição": "Revisão semestral do veículo",
+      "Status": "A"
+    },
+    {
+      "id": 23,
+      "Nome": "Evento social",
+      "Data": "2025-06-13",
+      "Hora": "20:00",
+      "Descrição": "Festa de aniversário de amigo",
+      "Status": "C"
+    },
+    {
+      "id": 24,
+      "Nome": "Palestra online",
+      "Data": "2025-06-14",
+      "Hora": "18:00",
+      "Descrição": "Palestra sobre desenvolvimento pessoal",
+      "Status": "A"
+    },
+    {
+      "id": 25,
+      "Nome": "Consulta dermatologista",
+      "Data": "2025-06-15",
+      "Hora": "10:00",
+      "Descrição": "Avaliação de manchas na pele",
+      "Status": "C"
+    },
+    {
+      "id": 26,
+      "Nome": "Aula de yoga",
+      "Data": "2025-06-16",
+      "Hora": "07:30",
+      "Descrição": "Aula presencial de yoga",
+      "Status": "A"
+    },
+    {
+      "id": 27,
+      "Nome": "Pagamento aluguel",
+      "Data": "2025-06-17",
+      "Hora": "09:00",
+      "Descrição": "Pagamento do aluguel do mês",
+      "Status": "C"
+    },
+    {
+      "id": 28,
+      "Nome": "Reunião financeira",
+      "Data": "2025-06-18",
+      "Hora": "15:00",
+      "Descrição": "Análise de balanço financeiro",
+      "Status": "A"
+    },
+    {
+      "id": 29,
+      "Nome": "Consulta fisioterapeuta",
+      "Data": "2025-06-19",
+      "Hora": "13:00",
+      "Descrição": "Sessão de fisioterapia semanal",
+      "Status": "C"
+    },
+    {
+      "id": 30,
+      "Nome": "Limpeza da casa",
+      "Data": "2025-06-20",
+      "Hora": "10:00",
+      "Descrição": "Limpeza geral da residência",
+      "Status": "A"
+    }
+  ]
+}
