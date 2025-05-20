@@ -2,11 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/build"
-      }
+      "src": "package.json",
+      "use": "@vercel/static-build"
     },
     {
       "src": "api/server.js",
@@ -25,10 +22,5 @@
       "src": "/(.*)",
       "dest": "/frontend/$1"
     }
-  ],
-  "build": {
-    "env": {
-      "NODE_VERSION": "22"
-    }
-  }
+  ]
 }
