@@ -4,7 +4,17 @@ import Agendamentos from './componentes/Agendamentos/agendamento';
 
 function App() {
   const [agendamentos, setAgendamentos] = useState([])
+  const jsonServer = require('json-server');
+  const server = jsonServer.create();
+  const router = jsonServer.router('db.json');
+  const middlewares = jsonServer.defaults();
 
+  server.use(middlewares);
+  server.use(router);
+  server.listen(3000, () => {
+    console.log('JSON Server is running')
+  });
+  
   useEffect(() => {
     fetch("http://localhost:3001/agendamentos")
     .then((res) => res.json())
