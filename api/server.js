@@ -9,5 +9,6 @@ server.use(middlewares);
 server.use(router);
 
 module.exports = (req, res) => {
+  req.url = req.url.replace(/^\/api/, '');
   server(req, res);
 };

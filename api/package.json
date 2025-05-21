@@ -5,6 +5,6 @@
     "json-server": "^0.17.3"
   },
   "engines": {
-    "node": "22.x"
+    "node": "18.x"
   }
 }
