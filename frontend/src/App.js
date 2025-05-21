@@ -7,7 +7,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3001/agendamentos")
+    fetch("/api/agendamentos")
     .then((res) => res.json())
     .then((data) => setAgendamentos(data))
     .catch((err) => alert("Alguma coisa deu errado ao tenta acessar o banco de dados", err))
