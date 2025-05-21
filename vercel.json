@@ -1,31 +1,12 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "projectRoot": "frontend",
-        "distDir": "build"
-      }
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node",
-      "config": {
-        "projectRoot": "api",
-        "includeFiles": ["api/db.json"]
-      }
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+    { "src": "/api/(.*)", "dest": "/api/$1.js" },
+    { "src": "/(.*)", "dest": "/frontend/$1" }
   ]
 }
