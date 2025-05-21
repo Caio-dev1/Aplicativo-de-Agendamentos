@@ -4,14 +4,17 @@
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "frontend/build" }
+      "config": {
+        "projectRoot": "frontend",
+        "distDir": "build"
+      }
     },
     {
       "src": "api/server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["api/db.json"],
-        "projectRoot": "api"
+        "projectRoot": "api",
+        "includeFiles": ["api/db.json"]
       }
     }
   ],
