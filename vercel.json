@@ -8,6 +8,14 @@
         "projectRoot": "frontend",
         "distDir": "build"
       }
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node",
+      "config": {
+        "projectRoot": "api",
+        "includeFiles": ["api/db.json"]
+      }
     }
   ],
   "routes": [
@@ -17,12 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/$1"
+      "dest": "/$1"
     }
-  ],
-  "functions": {
-    "api/server.js": {
-      "runtime": "nodejs22.x"
-    }
-  }
+  ]
 }
