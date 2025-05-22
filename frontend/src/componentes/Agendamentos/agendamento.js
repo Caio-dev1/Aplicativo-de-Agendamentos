@@ -3,7 +3,7 @@ function Agendamentos({ agendamentos }) {
             <ul>
                 {agendamentos.map((agendamentos) => (
                     <li key={agendamentos.id}>
-                        {agendamentos.Nome}, {agendamentos.Data}, {agendamentos.Descrição}, {agendamentos.Status} 
+                        {agendamentos.Nome}, {agendamentos.Data}, {agendamentos.Hora}, {agendamentos.Descrição}, {agendamentos.Status} 
                     </li>
                 ))}
             </ul>

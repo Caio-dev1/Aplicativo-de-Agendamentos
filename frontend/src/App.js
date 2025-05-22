@@ -13,7 +13,7 @@ function App() {
     fetch(`${API_BASE}/agendamentos`)
     .then((res) => res.json())
     .then((data) => setAgendamentos(data))
-    .catch((err) => alert("Alguma coisa deu errado ao tenta acessar o banco de dados", err))
+    .catch((err) => alert("Alguma coisa deu errado ao tentar acessar o banco de dados", err))
   }, [])
   
   return (
