@@ -1,4 +1,3 @@
-import ItemAgendamento from "./ItemAgendamento";
 
 
 function ListaAgendamentos({ agendamentos }) {
