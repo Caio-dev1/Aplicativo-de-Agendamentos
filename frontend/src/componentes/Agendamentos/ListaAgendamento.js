@@ -3,13 +3,14 @@ import ItemAgendamento from "./ItemAgendamento";
 
 function ListaAgendamentos({ agendamentos }) {
     return ( 
-            <ul>
+            ""/*<ul>
                 {agendamentos.map((item) => (
                 <li key={item.id}>
                     <ItemAgendamento item={item}/>
                 </li>
                 ))}
             </ul>
+            */
     );
 }
 

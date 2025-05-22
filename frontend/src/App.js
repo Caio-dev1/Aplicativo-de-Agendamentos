@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import ListaAgendamentos from './componentes/Agendamentos/ListaAgendamento';
+import PixeonMenu from './componentes/PixeonMenu/PixeonMenu';
 
 const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <div>
       <ListaAgendamentos agendamentos={agendamentos}/>
+      <PixeonMenu/>
     </div>
   );
 }

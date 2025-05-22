@@ -1,8 +1,10 @@
 function ItemAgendamento({ item }) {
-    return ( 
+    return ( ""
+        /*
         <div>
             {item.Nome}, {item.Data}, {item.Hora}, {item.Descrição}, {item.Status}
         </div>
+        */
     );
 }
 
