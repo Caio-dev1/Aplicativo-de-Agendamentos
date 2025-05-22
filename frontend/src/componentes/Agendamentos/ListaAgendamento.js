@@ -1,7 +1,7 @@
 import ItemAgendamento from "./ItemAgendamento";
 
 
-function Agendamentos({ agendamentos }) {
+function ListaAgendamentos({ agendamentos }) {
     return ( 
             <ul>
                 {agendamentos.map((item) => (
@@ -13,4 +13,4 @@ function Agendamentos({ agendamentos }) {
     );
 }
 
-export default Agendamentos;
+export default ListaAgendamentos;
