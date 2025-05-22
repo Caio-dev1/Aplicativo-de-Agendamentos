@@ -1,4 +1,4 @@
-import ItemAgendamento from "./ItemAgendamento";
+import ItemAgendamento from "ItemAgendamento";
 
 
 function Agendamentos({ agendamentos }) {
