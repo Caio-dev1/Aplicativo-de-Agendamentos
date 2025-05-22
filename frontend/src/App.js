@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
-import ListaAgendamentos from './componentes/Agendamentos/agendamento';
+import ListaAgendamentos from './componentes/Agendamentos/ListaAgendamento';
 
 const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
