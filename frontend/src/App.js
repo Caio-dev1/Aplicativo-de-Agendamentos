@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
-import Agendamentos from './componentes/Agendamentos/agendamento';
+import ListaAgendamentos from './componentes/Agendamentos/agendamento';
 
 const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
@@ -18,7 +18,7 @@ function App() {
   
   return (
     <div>
-      <Agendamentos agendamentos={agendamentos}/>
+      <ListaAgendamentos agendamentos={agendamentos}/>
     </div>
   );
 }
