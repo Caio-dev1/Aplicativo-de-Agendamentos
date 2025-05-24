@@ -1,9 +1,27 @@
+import styled from 'styled-components';
 import './App.css';
 import { useEffect, useState } from 'react';
 import React from 'react';
-import ListaAgendamentos from './componentes/Agendamentos/ListaAgendamento';
+import ListaAgendamentos from './componentes/ListagemAgendamentos/ListaAgendamento';
 import PixeonMenu from './componentes/PixeonMenu/PixeonMenu';
+import Barratopo from './componentes/PixeonBar/BarraTopo';
+import Aba from './componentes/ABA';
 
+const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+`
+const BodyWrapper = styled.div`
+ display: flex;
+ align-items: center;
+ width: calc(100% - 22rem);
+ height: 100%;
+ margin-left: 22rem;
+`
+const MainContent = styled.div`
+ background-color: #FAFAFA;
+`
 const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
@@ -20,7 +38,15 @@ function App() {
   return (
     <div>
       <ListaAgendamentos agendamentos={agendamentos}/>
-      <PixeonMenu/>
+      <HeaderWrapper>
+        <PixeonMenu/> 
+        <Barratopo/>
+      </HeaderWrapper>
+      <MainContent>
+        <BodyWrapper>
+          <Aba/>
+        </BodyWrapper>
+      </MainContent>
     </div>
   );
 }

@@ -8,7 +8,6 @@ font-size: 36px;
 line-height: 100%;
 letter-spacing: 0%;
 `
-
 function AgendamentoTitulo() {
     return ( 
         <StyledTitulo>Agendamentos</StyledTitulo>
