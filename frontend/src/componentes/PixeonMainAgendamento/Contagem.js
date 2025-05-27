@@ -36,7 +36,6 @@ function ContagemListagem({ agendamentos }) {
     );
     setQuantidadeConcluidos(porcentagemConcluidos);
     setQuantidadeAndamento(porcetagemAndamento);
-    console.log(quantidadeConcluidos);
   }, [agendamentos]);
 
   return (
