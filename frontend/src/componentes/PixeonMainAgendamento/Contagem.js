@@ -8,7 +8,7 @@ import ProgessbarC from "../../img/ProgessbarC.png";
 import ProgessbarA from "../../img/ProgessbarA.png";
 
 const ContagemAgendamentos = styled.section`
-  margin: 3rem 0 0 1rem;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
