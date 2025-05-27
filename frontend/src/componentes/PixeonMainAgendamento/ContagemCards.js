@@ -13,7 +13,7 @@ const CardContagemAgendamento = styled.div`
 `;
 
 const PorcetagemBola = styled.div`
-  background-color: ${({ corBase }) => `${corBase}1A`}; /* 10% opacity */
+  background-color: ${({ corBase }) => `${corBase}1A`};
   border-radius: 50%;
   width: 64px;
   height: 64px;
