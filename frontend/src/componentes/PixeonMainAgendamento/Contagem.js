@@ -18,8 +18,8 @@ const ContainerAgendamentosCards = styled.div`
   gap: 1rem;
 `;
 function ContagemListagem({ agendamentos }) {
-  const [quantidadeConcluidos, setQuantidadeConcluidos] = useState(null);
-  const [quantidadeAndamento, setQuantidadeAndamento] = useState(null);
+  const [quantidadeConcluidos, setQuantidadeConcluidos] = useState("...");
+  const [quantidadeAndamento, setQuantidadeAndamento] = useState("...");
 
   useEffect(() => {
     const agendamentosConcluidos = agendamentos.filter(
