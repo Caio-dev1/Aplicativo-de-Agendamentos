@@ -12,6 +12,7 @@ import Atividade from "../../img/Atividade.png"
 const BannerEstilizado = styled.section`
   background-color: #FFFFFF;
   margin: 2rem 2rem 3rem 2.8rem;
+  height: 858px;
 `;
 const ContainerBanner = styled.div`
   margin-left: 1.2rem;

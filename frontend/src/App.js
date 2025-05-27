@@ -1,53 +1,68 @@
-import styled from 'styled-components';
-import './App.css';
-import { useEffect, useState } from 'react';
-import React from 'react';
-import ListaAgendamentos from './componentes/ListagemAgendamentos/ListaAgendamento';
-import PixeonMenu from './componentes/PixeonMenu/PixeonMenu';
-import Barratopo from './componentes/PixeonBar/BarraTopo';
-import Aba from './componentes/ABA';
+import styled from "styled-components";
+import "./App.css";
+import { useEffect, useState } from "react";
+import React from "react";
+import ListaAgendamentos from "./componentes/ListagemAgendamentos/ListaAgendamento";
+import PixeonMenu from "./componentes/PixeonSideBar/PixeonMenu";
+import Barratopo from "./componentes/PixeonTopBar/BarraTopo";
+import Contagem from "./componentes/PixeonMainAgendamento/Contagem";
 
-const HeaderWrapper = styled.div`
+const AppWrapper = styled.div`
+  display: flex;
+`;
+
+const Sidebar = styled.div`
+  width: 22rem;
+  background-color: #FFFFFF;
+`;
+
+const MainContent = styled.div`
+  flex: 1;
+  background-color: #fafafa;
+  min-height: 100vh;
+`;
+
+const TopBar = styled.div`
+  background-color: #FFFFFF;
+  height: 120px;
   display: flex;
   align-items: center;
-  gap: 7rem;
-`
-const BodyWrapper = styled.div`
- display: flex;
- align-items: center;
- width: calc(100% - 22rem);
- height: 100%;
- margin-left: 22rem;
-`
-const MainContent = styled.div`
- background-color: #FAFAFA;
-`
-const API_BASE = process.env.REACT_APP_API_BASE_URL;
+  padding: 0 3rem;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+`;
+
+const PageBody = styled.div`
+  padding: 0 1.8rem;
+`;
 
 function App() {
-  const [agendamentos, setAgendamentos] = useState([])
-
+  const [agendamentos, setAgendamentos] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_BASE}/agendamentos`)
-    .then((res) => res.json())
-    .then((data) => setAgendamentos(data))
-    .catch((err) => alert("Alguma coisa deu errado ao tentar acessar o banco de dados", err))
-  }, [])
-  
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/agendamentos`)
+      .then((res) => res.json())
+      .then((data) => setAgendamentos(data))
+      .catch((err) =>
+        alert("Alguma coisa deu errado ao tentar acessar o banco de dados", err)
+      );
+  }, []);
+
   return (
-    <div>
-      <ListaAgendamentos agendamentos={agendamentos}/>
-      <HeaderWrapper>
-        <PixeonMenu/> 
-        <Barratopo/>
-      </HeaderWrapper>
+    <AppWrapper>
+      <Sidebar>
+        <PixeonMenu />
+      </Sidebar>
       <MainContent>
-        <BodyWrapper>
-          <Aba/>
-        </BodyWrapper>
+        <TopBar>
+          <Barratopo />
+        </TopBar>
+        <PageBody>
+          <Contagem />
+          <ListaAgendamentos agendamentos={agendamentos} />
+        </PageBody>
       </MainContent>
-    </div>
+    </AppWrapper>
   );
 }
 
