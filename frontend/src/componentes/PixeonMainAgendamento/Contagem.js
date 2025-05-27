@@ -29,7 +29,7 @@ function ContagemListagem({ agendamentos }) {
       (agendamento) => agendamento.Status === "A"
     ).length;
     const agendamentoSemE = agendamentos.filter(
-      (agendamento) => agendamento.Status != "E"
+      (agendamento) => agendamento.Status !== "E"
     );
     var porcentagemConcluidos = Math.floor(
       (agendamentosConcluidos / agendamentoSemE) * 100
