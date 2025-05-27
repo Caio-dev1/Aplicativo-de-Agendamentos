@@ -28,11 +28,14 @@ function ContagemListagem({ agendamentos }) {
     const agendamentosAndamento = agendamentos.filter(
       (agendamento) => agendamento.Status === "A"
     ).length;
+    const agendamentoSemE = agendamentos.filter(
+      (agendamento) => agendamento.status != "E"
+    );
     var porcentagemConcluidos = Math.floor(
-      (agendamentosConcluidos / agendamentos.length) * 100
+      (agendamentosConcluidos / agendamentoSemE) * 100
     );
     var porcetagemAndamento = Math.floor(
-      (agendamentosAndamento / agendamentos.length) * 100
+      (agendamentosAndamento / agendamentoSemE) * 100
     );
     setQuantidadeConcluidos(porcentagemConcluidos);
     setQuantidadeAndamento(porcetagemAndamento);
