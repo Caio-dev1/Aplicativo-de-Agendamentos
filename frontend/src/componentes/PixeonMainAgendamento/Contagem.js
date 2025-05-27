@@ -14,45 +14,51 @@ const ContagemAgendamentos = styled.section`
   gap: 1rem;
 `;
 const ContainerAgendamentosCards = styled.div`
- display: flex;
- gap: 1rem;
-`
+  display: flex;
+  gap: 1rem;
+`;
 function ContagemListagem({ agendamentos }) {
-  const [quantidadeConcluidos, setQuantidadeConcluidos] = useState(null)
-  const [quantidadeAndamento, setQuantidadeAndamento] = useState(null)
+  const [quantidadeConcluidos, setQuantidadeConcluidos] = useState(null);
+  const [quantidadeAndamento, setQuantidadeAndamento] = useState(null);
 
   useEffect(() => {
-    const agendamentosConcluidos = agendamentos.filter((agendamento) => agendamento.Status === "C").length;
-    const agendamentosAndamento = agendamentos.filter((agendamento) => agendamento.Status === "A").length;
-    var porcentagemConcluidos = Math.floor((agendamentosConcluidos / agendamentos.length) * 100);
-    var porcetagemAndamento = Math.floor((agendamentosAndamento / agendamentos.length) * 100);
-    setQuantidadeConcluidos(porcentagemConcluidos)
-    setQuantidadeAndamento(porcetagemAndamento)
-    console.log(quantidadeConcluidos)
-  }, [agendamentos])
+    const agendamentosConcluidos = agendamentos.filter(
+      (agendamento) => agendamento.Status === "C"
+    ).length;
+    const agendamentosAndamento = agendamentos.filter(
+      (agendamento) => agendamento.Status === "A"
+    ).length;
+    var porcentagemConcluidos = Math.floor(
+      (agendamentosConcluidos / agendamentos.length) * 100
+    );
+    var porcetagemAndamento = Math.floor(
+      (agendamentosAndamento / agendamentos.length) * 100
+    );
+    setQuantidadeConcluidos(porcentagemConcluidos);
+    setQuantidadeAndamento(porcetagemAndamento);
+    console.log(quantidadeConcluidos);
+  }, [agendamentos]);
 
   return (
-    
-
     <ContagemAgendamentos>
       <ContagemTitulo />
-    <ContainerAgendamentosCards>
+      <ContainerAgendamentosCards>
         <ContagemCard
-            corBase="#4CBC9A"
-            porcentagem={quantidadeConcluidos}
-            titulo="Concluído"
-            imagemSeta={SetadireitaC}
-            imagemBarra={ProgessbarC}
+          corBase="#4CBC9A"
+          porcentagem={quantidadeConcluidos}
+          titulo="Concluído"
+          imagemSeta={SetadireitaC}
+          imagemBarra={ProgessbarC}
         />
 
         <ContagemCard
-            corBase="#FEC64F"
-            porcentagem={quantidadeAndamento}
-            titulo="Em Andamento"
-            imagemSeta={SetadiretaA}
-            imagemBarra={ProgessbarA}
+          corBase="#FEC64F"
+          porcentagem={quantidadeAndamento}
+          titulo="Em Andamento"
+          imagemSeta={SetadiretaA}
+          imagemBarra={ProgessbarA}
         />
-    </ContainerAgendamentosCards>
+      </ContainerAgendamentosCards>
     </ContagemAgendamentos>
   );
 }

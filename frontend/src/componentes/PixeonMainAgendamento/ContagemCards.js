@@ -50,7 +50,13 @@ const ContainerCard = styled.div`
   gap: 10px;
 `;
 
-function ContagemCard({ corBase, porcentagem, titulo, imagemSeta, imagemBarra }) {
+function ContagemCard({
+  corBase,
+  porcentagem,
+  titulo,
+  imagemSeta,
+  imagemBarra,
+}) {
   return (
     <CardContagemAgendamento>
       <PorcetagemBola corBase={corBase}>

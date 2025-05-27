@@ -6,11 +6,11 @@ import X from "../../img/Letras/X.png";
 import E from "../../img/Letras/E.png";
 import O from "../../img/Letras/O.png";
 import N from "../../img/Letras/N.png";
-import Calendario from "../../img/Calendario.png"
-import Atividade from "../../img/Atividade.png"
+import Calendario from "../../img/Calendario.png";
+import Atividade from "../../img/Atividade.png";
 
 const BannerEstilizado = styled.section`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin: 2rem 2rem 3rem 2.8rem;
   height: 858px;
 `;
@@ -29,22 +29,22 @@ const Letra = styled.img`
   height: 27px;
 `;
 const MenuIcone = styled.img`
- height: 30px;
-`
+  height: 30px;
+`;
 const AgendamentoMenu = styled.div`
- margin-top: 5rem;
- display: flex;
- flex-direction: column;
- gap: 1rem;
-`
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 const AgendamentoMenuButtonAtivado = styled.button`
-  background: #4CBC9A;
+  background: #4cbc9a;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 252px;
   height: 64px;
-    gap: 24px;
-    border-radius: 20px;
+  gap: 24px;
+  border-radius: 20px;
   padding: 16px 24px 16px 24px;
   font-family: Poppins;
   font-weight: 500;
@@ -52,15 +52,15 @@ const AgendamentoMenuButtonAtivado = styled.button`
   line-height: 100%;
   display: flex;
   align-items: center;
-`
+`;
 const AgendamentoMenuButton = styled.button`
   background: none;
   border: none;
-  color: #A098AE;
+  color: #a098ae;
   width: 252px;
   height: 64px;
-    gap: 24px;
-    border-radius: 20px;
+  gap: 24px;
+  border-radius: 20px;
   padding: 16px 24px 16px 24px;
   font-family: Poppins;
   font-weight: 500;
@@ -69,7 +69,7 @@ const AgendamentoMenuButton = styled.button`
   display: flex;
   align-items: center;
   text-align: left;
-`
+`;
 function PixeonMenu() {
   return (
     <BannerEstilizado>
@@ -82,10 +82,16 @@ function PixeonMenu() {
         <Letra src={O} alt="O" />
         <Letra src={N} alt="N" />
       </ContainerBanner>
-    <AgendamentoMenu>
-        <AgendamentoMenuButtonAtivado><MenuIcone src={Calendario} alt="Imagem de Calendário"/> Agendamento</AgendamentoMenuButtonAtivado>
-        <AgendamentoMenuButton> <MenuIcone src={Atividade} alt="Imagem de Batimento Cardiáco"/> Todos os Agendamentos</AgendamentoMenuButton>
-    </AgendamentoMenu>
+      <AgendamentoMenu>
+        <AgendamentoMenuButtonAtivado>
+          <MenuIcone src={Calendario} alt="Imagem de Calendário" /> Agendamento
+        </AgendamentoMenuButtonAtivado>
+        <AgendamentoMenuButton>
+          {" "}
+          <MenuIcone src={Atividade} alt="Imagem de Batimento Cardiáco" /> Todos
+          os Agendamentos
+        </AgendamentoMenuButton>
+      </AgendamentoMenu>
     </BannerEstilizado>
   );
 }

@@ -13,7 +13,7 @@ const AppWrapper = styled.div`
 
 const Sidebar = styled.div`
   width: 22rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 `;
 
 const MainContent = styled.div`
@@ -23,7 +23,7 @@ const MainContent = styled.div`
 `;
 
 const TopBar = styled.div`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 120px;
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@ function App() {
           <Barratopo />
         </TopBar>
         <PageBody>
-          <ContagemListagem agendamentos={agendamentos}/>
+          <ContagemListagem agendamentos={agendamentos} />
           <ListaAgendamentos agendamentos={agendamentos} />
         </PageBody>
       </MainContent>
