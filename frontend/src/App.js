@@ -5,7 +5,7 @@ import React from "react";
 import ListaAgendamentos from "./componentes/ListagemAgendamentos/ListaAgendamento";
 import PixeonMenu from "./componentes/PixeonSideBar/PixeonMenu";
 import Barratopo from "./componentes/PixeonTopBar/BarraTopo";
-import Contagem from "./componentes/PixeonMainAgendamento/Contagem";
+import ContagemListagem from "./componentes/PixeonMainAgendamento/Contagem";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ function App() {
           <Barratopo />
         </TopBar>
         <PageBody>
-          <Contagem />
+          <ContagemListagem agendamentos={agendamentos}/>
           <ListaAgendamentos agendamentos={agendamentos} />
         </PageBody>
       </MainContent>
