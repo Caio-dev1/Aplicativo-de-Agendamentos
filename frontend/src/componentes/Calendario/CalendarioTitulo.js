@@ -9,8 +9,8 @@ const TituloCalendario = styled.h3`
   color: #374557;
 `;
 
-function CalendarioTitulo() {
-  return <TituloCalendario>Calendário</TituloCalendario>;
+function CalendarioTitulo({ Titulo }) {
+  return <TituloCalendario>{Titulo}</TituloCalendario>;
 }
 
 export default CalendarioTitulo;

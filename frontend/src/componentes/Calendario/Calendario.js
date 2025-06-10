@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CalendarioTitulo from "./CalendarioTitulo";
+import CalendarioTable from "./CalendarioTable";
 
 const CalendarioBox = styled.section`
 width: 722px;
@@ -10,9 +11,9 @@ background-color: #FFFFFF;
 function Calendario() {
     return ( 
     <>
-        <CalendarioTitulo/>
+        <CalendarioTitulo Titulo="Calendario"/>
         <CalendarioBox>
-
+            <CalendarioTable/>
         </CalendarioBox>
     </>
     );
