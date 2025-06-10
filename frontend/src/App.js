@@ -5,23 +5,21 @@ import React from "react";
 import ListaAgendamentos from "./componentes/ListagemAgendamentos/ListaAgendamento";
 import PixeonMenu from "./componentes/PixeonSideBar/PixeonMenu";
 import Barratopo from "./componentes/PixeonTopBar/BarraTopo";
-import ContagemListagem from "./componentes/PixeonMainAgendamento/Contagem";
+import ContagemListagem from "./componentes/ContagemAgendamento/Contagem";
+import Calendario from "./componentes/Calendario/Calendario";
 
 const AppWrapper = styled.div`
   display: flex;
 `;
-
 const Sidebar = styled.div`
   width: 22rem;
   background-color: #ffffff;
 `;
-
 const MainContent = styled.div`
   flex: 1;
   background-color: #fafafa;
   min-height: 100vh;
 `;
-
 const TopBar = styled.div`
   background-color: #ffffff;
   height: 120px;
@@ -31,10 +29,22 @@ const TopBar = styled.div`
   box-sizing: border-box;
   margin-bottom: 2rem;
 `;
-
 const PageBody = styled.div`
   padding: 0 1.8rem;
 `;
+
+const ContentRow = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+
+const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+    word-break: keep-all;
+  overflow-wrap: normal;
+`;
+const RightColumn = styled.div``;
 
 function App() {
   const [agendamentos, setAgendamentos] = useState([]);
@@ -58,8 +68,15 @@ function App() {
           <Barratopo />
         </TopBar>
         <PageBody>
-          <ContagemListagem agendamentos={agendamentos} />
-          <ListaAgendamentos agendamentos={agendamentos} />
+          <ContentRow>
+            <LeftColumn>
+              <ContagemListagem agendamentos={agendamentos} />
+              <ListaAgendamentos agendamentos={agendamentos} />
+            </LeftColumn>
+            <RightColumn>
+              <Calendario />
+            </RightColumn>
+          </ContentRow>
         </PageBody>
       </MainContent>
     </AppWrapper>

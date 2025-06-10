@@ -2,10 +2,14 @@ import styled from "styled-components";
 import SetaVerde from "../../img/SetaConcluido.png"
 
 const CabecalhoSecao = styled.div`
- display: flex;
- margin-right: 5rem;
- gap: 13rem; 
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 5rem;
+  width: 100%;
+  flex-wrap: wrap;
+`;
+
 const TituloAgendamento = styled.h3`
   font-family: Poppins;
   font-weight: 700;
@@ -13,24 +17,33 @@ const TituloAgendamento = styled.h3`
   line-height: 100%;
   letter-spacing: 0%;
   color: #374557;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
+
 const BotaoVerTodos = styled.div`
- display: flex;
- align-items: center;
+  display: flex;
+  align-items: center;
   gap: 8px;
-`
+`;
+
 const VerTodosTexto = styled.p`
- color: #4CBC9A;
- font-family: Poppins;
-font-weight: 400;
-font-size: 18px;
-line-height: 100%;
-letter-spacing: 0%;
-`
+  color: #4CBC9A;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 const Seta = styled.img`
-  heigth: 12px;
+  height: 12px;
   margin-top: 1px;
-`
+`;
 function CabecalhoAgendamentos() {
   return(
   <CabecalhoSecao>
