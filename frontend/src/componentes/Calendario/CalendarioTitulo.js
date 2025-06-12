@@ -7,6 +7,8 @@ const TituloCalendario = styled.h3`
   line-height: 100%;
   letter-spacing: 0%;
   color: #374557;
+  justify-content: center;
+  text-transform: capitalize
 `;
 
 function CalendarioTitulo({ Titulo }) {
