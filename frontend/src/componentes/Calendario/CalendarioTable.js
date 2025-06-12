@@ -29,6 +29,7 @@ const CabecalhoFlex = styled.div`
   position: relative;
   padding: 0 40px;
 `;
+
 const Seta = styled.img`
   cursor: pointer;
 `;
@@ -46,26 +47,31 @@ const TdDia = styled.td`
 function CalendarioTable() {
   const [dataAtual, setDataAtual] = useState(moment());
 
-const mudarMes = (direcao) => {
-  setDataAtual((prev) =>
-    (direcao === "anterior"
-      ? prev.clone().subtract(1, "month")
-      : prev.clone().add(1, "month")
-    ).locale("pt-br")
-  );
-};
+  const mudarMes = (direcao) => {
+    setDataAtual((prev) =>
+      (direcao === "anterior"
+        ? prev.clone().subtract(1, "month")
+        : prev.clone().add(1, "month")
+      ).locale("pt-br")
+    );
+  };
 
   const diasDoMes = useMemo(() => {
     const inicioMes = dataAtual.clone().startOf("month");
     const fimMes = dataAtual.clone().endOf("month");
 
-    const inicioGrade = inicioMes.clone().startOf("week").add(1, "day");
-    const fimGrade = fimMes.clone().endOf("week").add(1, "day");
+    const diaDaSemana = inicioMes.day();
+    const diasAtras = diaDaSemana === 0 ? 6 : diaDaSemana - 1;
+    const inicioGrade = inicioMes.clone().subtract(diasAtras, 'days');
+
+    const fimDiaDaSemana = fimMes.day();
+    const diasFrente = fimDiaDaSemana === 0 ? 0 : 7 - fimDiaDaSemana;
+    const fimGrade = fimMes.clone().add(diasFrente, 'days');
 
     const dias = [];
     const dia = inicioGrade.clone();
 
-    while (dia.isBefore(fimGrade, "day")) {
+    while (dia.isBefore(fimGrade, "day") || dia.isSame(fimGrade, "day")) {
       dias.push(dia.clone());
       dia.add(1, "day");
     }
