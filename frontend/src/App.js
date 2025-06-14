@@ -74,7 +74,7 @@ function App() {
               <ListaAgendamentos agendamentos={agendamentos} />
             </LeftColumn>
             <RightColumn>
-              <Calendario />
+              <Calendario agendamentos={agendamentos}/>
             </RightColumn>
           </ContentRow>
         </PageBody>

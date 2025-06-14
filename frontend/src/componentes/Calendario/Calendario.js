@@ -8,12 +8,12 @@ height: 404px;
 background-color: #FFFFFF;
 `
 
-function Calendario() {
+function Calendario({ agendamentos }) {
     return ( 
     <>
         <CalendarioTitulo Titulo="Calendario"/>
         <CalendarioBox>
-            <CalendarioTable/>
+            <CalendarioTable agendamentos={agendamentos}/>
         </CalendarioBox>
     </>
     );

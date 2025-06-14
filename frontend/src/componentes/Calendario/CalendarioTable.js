@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import CalendarioTitulo from "./CalendarioTitulo";
 import SetaDireita from "../../img/SetaDireita.png";
 import SetaEsquerda from "../../img/SetaEsquerda.png";
-import 'moment/locale/pt-br'
+import "moment/locale/pt-br";
 
 moment.locale("pt-br");
 
@@ -13,8 +13,9 @@ const TableWrapper = styled.div`
 `;
 
 const TableCalendario = styled.table`
-  border-collapse: collapse;
+  border-collapse: separate;
   text-align: center;
+  border-spacing: 8px;
   font-family: Poppins;
 `;
 
@@ -40,11 +41,14 @@ const ThCabecalho = styled.th`
 `;
 
 const TdDia = styled.td`
-  padding: 12px;
-  background-color: #ffffff;
+  padding: 6px 10px 8px 10px;
+  border-radius: 9px;
+  background-color: ${({ bg }) => bg || "transparent"};
+  color: ${({ foraMes, domingo }) =>
+    foraMes ? "#bbb" : domingo ? "#FC6B57" : "#000"};
 `;
 
-function CalendarioTable() {
+function CalendarioTable({ agendamentos }) {
   const [dataAtual, setDataAtual] = useState(moment());
 
   const mudarMes = (direcao) => {
@@ -59,15 +63,12 @@ function CalendarioTable() {
   const diasDoMes = useMemo(() => {
     const inicioMes = dataAtual.clone().startOf("month");
     const fimMes = dataAtual.clone().endOf("month");
-
     const diaDaSemana = inicioMes.day();
     const diasAtras = diaDaSemana === 0 ? 6 : diaDaSemana - 1;
-    const inicioGrade = inicioMes.clone().subtract(diasAtras, 'days');
-
+    const inicioGrade = inicioMes.clone().subtract(diasAtras, "days");
     const fimDiaDaSemana = fimMes.day();
     const diasFrente = fimDiaDaSemana === 0 ? 0 : 7 - fimDiaDaSemana;
-    const fimGrade = fimMes.clone().add(diasFrente, 'days');
-
+    const fimGrade = fimMes.clone().add(diasFrente, "days");
     const dias = [];
     const dia = inicioGrade.clone();
 
@@ -83,6 +84,12 @@ function CalendarioTable() {
   for (let i = 0; i < diasDoMes.length; i += 7) {
     semanas.push(diasDoMes.slice(i, i + 7));
   }
+
+  const mapAgendamentos = {};
+  agendamentos.forEach((ag) => {
+    const data = moment(ag.Data).format("YYYY-MM-DD");
+    mapAgendamentos[data] = ag.Status;
+  });
 
   return (
     <TableWrapper>
@@ -106,7 +113,9 @@ function CalendarioTable() {
         <thead>
           <tr>
             {["M", "T", "W", "T", "F", "S", "S"].map((dia, idx) => (
-              <ThCabecalho key={idx} style={{ color: idx === 6 ? "#FC6B57" : undefined }}>{dia}</ThCabecalho>
+              <ThCabecalho key={idx} style={{ color: idx === 6 ? "#FC6B57" : undefined }}>
+                {dia}
+              </ThCabecalho>
             ))}
           </tr>
         </thead>
@@ -114,20 +123,23 @@ function CalendarioTable() {
         <tbody>
           {semanas.map((semana, idx) => (
             <tr key={idx}>
-              {semana.map((dia, i) => (
-                <TdDia
-                  key={i}
-                  style={{
-                    color: dia.day() === 0
-                      ? "#FC6B57"
-                      : dia.month() === dataAtual.month()
-                      ? "#000"
-                      : "#bbb"
-                  }}
-                >
-                  {dia.date()}
-                </TdDia>
-              ))}
+              {semana.map((dia, i) => {
+                const dataFormatada = dia.format("YYYY-MM-DD");
+                const status = mapAgendamentos[dataFormatada];
+                let bg = null;
+                if (status === "A") bg = "#FDCB6E";
+                else if (status === "C") bg = "#4CBC9A";
+                else if (status === "E") bg = "#FC6B57";
+
+                const foraMes = dia.month() !== dataAtual.month();
+                const domingo = dia.day() === 0;
+
+                return (
+                  <TdDia key={i} bg={bg} foraMes={foraMes} domingo={domingo}>
+                    {dia.date()}
+                  </TdDia>
+                );
+              })}
             </tr>
           ))}
         </tbody>
