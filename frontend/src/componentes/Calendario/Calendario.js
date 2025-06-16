@@ -8,12 +8,12 @@ height: 404px;
 background-color: #FFFFFF;
 `
 
-function Calendario({ agendamentos }) {
+function Calendario({ agendamentos, setDiaSelecionado, diaSelecionado }) {
     return ( 
     <>
         <CalendarioTitulo Titulo="Calendario"/>
         <CalendarioBox>
-            <CalendarioTable agendamentos={agendamentos}/>
+            <CalendarioTable agendamentos={agendamentos} diaSelecionado={diaSelecionado} setDiaSelecionado={setDiaSelecionado}/>
         </CalendarioBox>
     </>
     );

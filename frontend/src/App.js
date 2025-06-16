@@ -48,6 +48,7 @@ const RightColumn = styled.div``;
 
 function App() {
   const [agendamentos, setAgendamentos] = useState([]);
+  const [diaSelecionado, setDiaSelecionado] = useState(null);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/agendamentos`)
@@ -71,10 +72,10 @@ function App() {
           <ContentRow>
             <LeftColumn>
               <ContagemListagem agendamentos={agendamentos} />
-              <ListaAgendamentos agendamentos={agendamentos} />
+              <ListaAgendamentos agendamentos={agendamentos} diaSelecionado={diaSelecionado}/>
             </LeftColumn>
             <RightColumn>
-              <Calendario agendamentos={agendamentos}/>
+              <Calendario agendamentos={agendamentos} diaSelecionado={diaSelecionado} setDiaSelecionado={setDiaSelecionado}/>
             </RightColumn>
           </ContentRow>
         </PageBody>

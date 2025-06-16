@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import Relogio from "../../img/Relogio.png";
 import Calendario from "../../img/CalendarioCinza.png";
+import moment from "moment";
+
+moment.locale("pt-br");
 
 const AgendamentoItem = styled.div`
   background-color: #ffffff;
@@ -95,13 +98,9 @@ function ItemAgendamento({ item, corBase, seta }) {
     border-bottom-left-radius: 20px;
   `;
 
-  function formatarDataBr(dataISO) {
-    const data = new Date(dataISO);
-    return data.toLocaleDateString("pt-BR", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
+  function formatarData(dataISO) {
+    const data = moment(dataISO);
+    return data.format("D [de] MMMM [de] YYYY")
   }
 
   return (
@@ -113,7 +112,7 @@ function ItemAgendamento({ item, corBase, seta }) {
           <DataEHora>
             <DataOuHora>
               <Icone src={Calendario} />
-              <ItemTexto>{formatarDataBr(item.Data)}</ItemTexto>
+              <ItemTexto>{formatarData(item.Data)}</ItemTexto>
             </DataOuHora>
             <DataOuHora>
               <Icone src={Relogio} />

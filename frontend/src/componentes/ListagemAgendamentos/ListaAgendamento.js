@@ -4,6 +4,7 @@ import ListaAgendamentoTitulo from "./ListaAgendamentoTitulo";
 import SetaConcluido from "../../img/SetaConcluido.png";
 import SetaAndamento from "../../img/SetaAndamento.png";
 import SetaExpirado from "../../img/SetaExpirado.png";
+import moment from "moment";
 
 const Container = styled.div`
   display: flex;
@@ -24,8 +25,14 @@ const AgendamentosLista = styled.ul`
 
 const AgendamentoLi = styled.li``;
 
-function ListaAgendamentos({ agendamentos }) {
-  const agendamentosRenderizados = agendamentos.filter((a) => a.id <= 5);
+function ListaAgendamentos({ agendamentos, diaSelecionado }) {
+    const agendamentosFiltrados = diaSelecionado
+    ? agendamentos.filter((a) =>
+        moment(a.Data).isSame(diaSelecionado, "day")
+      )
+    : agendamentos;
+
+  const agendamentosRenderizados = agendamentosFiltrados.slice(0, 5);
 
   function handleStatusAgendamento(status) {
     switch (status) {

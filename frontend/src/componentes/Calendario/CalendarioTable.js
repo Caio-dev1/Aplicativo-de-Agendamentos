@@ -48,7 +48,7 @@ const TdDia = styled.td`
     foraMes ? "#bbb" : domingo ? "#FC6B57" : "#000"};
 `;
 
-function CalendarioTable({ agendamentos }) {
+function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
   const [dataAtual, setDataAtual] = useState(moment());
 
   const mudarMes = (direcao) => {
@@ -89,6 +89,7 @@ function CalendarioTable({ agendamentos }) {
   agendamentos.forEach((ag) => {
     const data = moment(ag.Data).format("YYYY-MM-DD");
     mapAgendamentos[data] = ag.Status;
+    console.log(mapAgendamentos);
   });
 
   return (
@@ -113,7 +114,10 @@ function CalendarioTable({ agendamentos }) {
         <thead>
           <tr>
             {["M", "T", "W", "T", "F", "S", "S"].map((dia, idx) => (
-              <ThCabecalho key={idx} style={{ color: idx === 6 ? "#FC6B57" : undefined }}>
+              <ThCabecalho
+                key={idx}
+                style={{ color: idx === 6 ? "#FC6B57" : undefined }}
+              >
                 {dia}
               </ThCabecalho>
             ))}
@@ -130,12 +134,29 @@ function CalendarioTable({ agendamentos }) {
                 if (status === "A") bg = "#FDCB6E";
                 else if (status === "C") bg = "#4CBC9A";
                 else if (status === "E") bg = "#FC6B57";
-
+                console.log(mapAgendamentos);
                 const foraMes = dia.month() !== dataAtual.month();
                 const domingo = dia.day() === 0;
 
                 return (
-                  <TdDia key={i} bg={bg} foraMes={foraMes} domingo={domingo}>
+                  <TdDia
+                    key={i}
+                    bg={bg}
+                    foraMes={foraMes}
+                    domingo={domingo}
+                    onClick={() => {
+                      const dataClicada = dia.clone();
+                      if (
+                        diaSelecionado &&
+                        dataClicada.isSame(diaSelecionado, "day")
+                      ) {
+                        setDiaSelecionado(null);
+                      } else {
+                        setDiaSelecionado(dataClicada);
+                      }
+                    }}
+                    style={{ cursor: "pointer" }}
+                  >
                     {dia.date()}
                   </TdDia>
                 );
