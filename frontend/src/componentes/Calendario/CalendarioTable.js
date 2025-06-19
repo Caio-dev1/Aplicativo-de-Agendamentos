@@ -48,7 +48,7 @@ const TdDia = styled.td`
     foraMes ? "#bbb" : domingo ? "#FC6B57" : "#000"};
 `;
 
-function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
+function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado, setPopup }) {
   const [dataAtual, setDataAtual] = useState(moment());
 
   const mudarMes = (direcao) => {
@@ -69,6 +69,7 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
     const fimDiaDaSemana = fimMes.day();
     const diasFrente = fimDiaDaSemana === 0 ? 0 : 7 - fimDiaDaSemana;
     const fimGrade = fimMes.clone().add(diasFrente, "days");
+
     const dias = [];
     const dia = inicioGrade.clone();
 
@@ -89,7 +90,6 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
   agendamentos.forEach((ag) => {
     const data = moment(ag.Data).format("YYYY-MM-DD");
     mapAgendamentos[data] = ag.Status;
-    console.log(mapAgendamentos);
   });
 
   return (
@@ -114,12 +114,7 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
         <thead>
           <tr>
             {["M", "T", "W", "T", "F", "S", "S"].map((dia, idx) => (
-              <ThCabecalho
-                key={idx}
-                style={{ color: idx === 6 ? "#FC6B57" : undefined }}
-              >
-                {dia}
-              </ThCabecalho>
+              <ThCabecalho key={idx}>{dia}</ThCabecalho>
             ))}
           </tr>
         </thead>
@@ -134,7 +129,6 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
                 if (status === "A") bg = "#FDCB6E";
                 else if (status === "C") bg = "#4CBC9A";
                 else if (status === "E") bg = "#FC6B57";
-                console.log(mapAgendamentos);
                 const foraMes = dia.month() !== dataAtual.month();
                 const domingo = dia.day() === 0;
 
@@ -146,13 +140,21 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado }) {
                     domingo={domingo}
                     onClick={() => {
                       const dataClicada = dia.clone();
+                      const dataFormatada = dataClicada.format("YYYY-MM-DD");
                       if (
                         diaSelecionado &&
                         dataClicada.isSame(diaSelecionado, "day")
                       ) {
                         setDiaSelecionado(null);
+                        setPopup(false);
                       } else {
                         setDiaSelecionado(dataClicada);
+
+                        if (!mapAgendamentos[dataFormatada]) {
+                          setPopup(true);
+                        } else {
+                          setPopup(false);
+                        }
                       }
                     }}
                     style={{ cursor: "pointer" }}
