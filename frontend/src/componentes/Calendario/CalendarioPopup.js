@@ -1,72 +1,112 @@
-import styled from "styled-components";
-import Close from "../../img/Fechar.png"
-import Positivo from "../../img/Positivo.png"
+import styled, { keyframes } from "styled-components";
+import Close from "../../img/Fechar.png";
+import Positivo from "../../img/Positivo.png";
+import { useEffect, useState } from "react";
+
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+`;
+
 
 const PopupBox = styled.div`
-  width: 722px;
-  height: 112px;
-  border-radius: 16px;
+  width: 400px;
+  min-height: 80px;
+  border-radius: 8px;
   background-color: #FC6B57;
-  margin-top: 40px;
   font-family: Poppins;
   display: flex;
   align-items: flex-start;
-  padding: 24px 0px 0px 20px; 
-  position: relative; 
+  padding: 16px 16px 16px 20px;
   box-sizing: border-box;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  animation: ${({ isClosing }) => (isClosing ? fadeOut : fadeIn)} 0.4s ease forwards;
 `;
 
 const CloseButton = styled.img`
   width: 10px;
   height: 10px;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 12px;
+  right: 12px;
   cursor: pointer;
 `;
 
 const PopupImg = styled.img`
-  width: 46px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   margin-right: 16px;
-  margin-top: 8px;
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 4px;
 `;
 
 const PopupText = styled.p`
-    font-family: Poppins;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0%;
-    color: #FFFFFF;
-    margin: 0;
-`
+  font-weight: 400;
+  font-size: 13px;
+  color: #FFFFFF;
+  margin: 0;
+`;
+
 const PopupH3 = styled.h3`
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #FFFFFF;
-    margin: 0;
-`
+  font-weight: 600;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0;
+`;
+
 function CalendarioPopup({ setPopup }) {
-    return ( 
-        <PopupBox>
-                <PopupImg src={Positivo}/>
-                <TextContainer>
-                    <PopupH3>Atenção!</PopupH3>
-                    <PopupText>Não existem agendamentos para o dia selecionado.</PopupText>
-                </TextContainer>
-                <CloseButton onClick={() => setPopup(false)} src={Close}/>
-        </PopupBox>
-    );
+  const [isClosing, setIsClosing] = useState(false);
+
+
+  useEffect(() => {
+    const autoClose = setTimeout(() => {
+      setIsClosing(true);
+      setTimeout(() => setPopup(false), 400);
+    }, 4000);
+
+    return () => clearTimeout(autoClose);
+  }, [setPopup]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => setPopup(false), 400);
+  };
+
+  return (
+    <PopupBox isClosing={isClosing}>
+      <PopupImg src={Positivo} alt="Ícone de atenção" />
+      <TextContainer>
+        <PopupH3>Atenção!</PopupH3>
+        <PopupText>Não existem agendamentos para o dia selecionado.</PopupText>
+      </TextContainer>
+      <CloseButton onClick={handleClose} src={Close} alt="Fechar" />
+    </PopupBox>
+  );
 }
 
 export default CalendarioPopup;
