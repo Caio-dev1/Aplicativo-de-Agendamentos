@@ -57,6 +57,7 @@ const PopupImg = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 16px;
+  margin-top: 14px;
 `;
 
 const TextContainer = styled.div`
