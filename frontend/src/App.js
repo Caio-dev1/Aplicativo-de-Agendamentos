@@ -7,6 +7,8 @@ import PixeonMenu from "./componentes/PixeonSideBar/PixeonMenu";
 import Barratopo from "./componentes/PixeonTopBar/BarraTopo";
 import ContagemListagem from "./componentes/ContagemAgendamento/Contagem";
 import Calendario from "./componentes/Calendario/Calendario";
+import MonitoramentoDisco from "./componentes/MonitoramentoDisco/Monitoramento";
+import CalendarioTitulo from "./componentes/Calendario/CalendarioTitulo";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -44,7 +46,17 @@ const LeftColumn = styled.div`
     word-break: keep-all;
   overflow-wrap: normal;
 `;
-const RightColumn = styled.div``;
+const RightColumn = styled.div`
+ display: flex;
+ background-color: #FFFFFF;
+ width: 722px;
+height: 404px;
+`;
+
+const ContainerBox = styled.div`
+ display: flex;
+ flex-direction: column;
+`
 
 function App() {
   const [agendamentos, setAgendamentos] = useState([]);
@@ -74,9 +86,13 @@ function App() {
               <ContagemListagem agendamentos={agendamentos} />
               <ListaAgendamentos agendamentos={agendamentos} diaSelecionado={diaSelecionado}/>
             </LeftColumn>
-            <RightColumn>
-              <Calendario agendamentos={agendamentos} diaSelecionado={diaSelecionado} setDiaSelecionado={setDiaSelecionado}/>
-            </RightColumn>
+            <ContainerBox>
+              <CalendarioTitulo Titulo="Calendario"/>
+              <RightColumn>
+                <Calendario agendamentos={agendamentos} diaSelecionado={diaSelecionado} setDiaSelecionado={setDiaSelecionado}/>
+                <MonitoramentoDisco/>
+              </RightColumn>
+            </ContainerBox>
           </ContentRow>
         </PageBody>
       </MainContent>
