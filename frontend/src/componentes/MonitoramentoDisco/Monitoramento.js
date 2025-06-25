@@ -72,22 +72,22 @@ function MonitoramentoDisco() {
       <Estados>
         <Col>
           <Item>
-            <EstadoIcon src={EstadoAlerta} />
-            <DiscoTexto>Alerta</DiscoTexto>
-          </Item>
-          <Item>
-            <EstadoIcon src={EstadoCritico} />
-            <DiscoTexto>Crítico</DiscoTexto>
-          </Item>
-        </Col>
-        <Col>
-          <Item>
             <EstadoIcon src={EstadoNormal} />
             <DiscoTexto>Normal</DiscoTexto>
           </Item>
           <Item>
             <EstadoIcon src={EstadoAtencao} />
             <DiscoTexto>Atenção</DiscoTexto>
+          </Item>
+        </Col>
+        <Col>
+          <Item>
+            <EstadoIcon src={EstadoAlerta} />
+            <DiscoTexto>Alerta</DiscoTexto>
+          </Item>
+          <Item>
+            <EstadoIcon src={EstadoCritico} />
+            <DiscoTexto>Crítico</DiscoTexto>
           </Item>
         </Col>
       </Estados>
