@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import LogoPixeon from "../../img/LogoPixeon.png";
-import P from "../../img/Letras/P.png";
-import I from "../../img/Letras/I.png";
-import X from "../../img/Letras/X.png";
-import E from "../../img/Letras/E.png";
-import O from "../../img/Letras/O.png";
-import N from "../../img/Letras/N.png";
+import PixeonLogo from "../../img/PixeonLogo.png";
 import Calendario from "../../img/Calendario.png";
 import Atividade from "../../img/Atividade.png";
 
@@ -74,13 +68,7 @@ function PixeonMenu() {
   return (
     <BannerEstilizado>
       <ContainerBanner>
-        <Logo src={LogoPixeon} alt="Logo da Pixeon" />
-        <Letra src={P} alt="P" />
-        <Letra src={I} alt="I" />
-        <Letra src={X} alt="X" />
-        <Letra src={E} alt="E" />
-        <Letra src={O} alt="O" />
-        <Letra src={N} alt="N" />
+        <Logo src={PixeonLogo} alt="Logo da Pixeon" />
       </ContainerBanner>
       <AgendamentoMenu>
         <AgendamentoMenuButtonAtivado>
