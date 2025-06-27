@@ -18,10 +18,6 @@ const Logo = styled.img`
   height: 57px;
   margin-right: 10px;
 `;
-const Letra = styled.img`
-  padding-top: 5px;
-  height: 27px;
-`;
 const MenuIcone = styled.img`
   height: 30px;
 `;
