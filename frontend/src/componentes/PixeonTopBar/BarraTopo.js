@@ -1,7 +1,7 @@
 import AgendamentoTitulo from "./AgendamentoTitulo";
 import styled from "styled-components";
 import UsuarioPerfil from "../../img/UsuarioPerfil.png";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TopoBarraSecao = styled.section`
   background-color: #ffffff;
