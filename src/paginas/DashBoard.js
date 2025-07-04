@@ -62,7 +62,7 @@ function Dashboard() {
   const [diaSelecionado, setDiaSelecionado] = useState(null);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/agendamentos`)
+    fetch(`/api/agendamentos`)
       .then((res) => res.json())
       .then((data) => setAgendamentos(data))
       .catch((err) =>
