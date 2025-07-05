@@ -4,16 +4,12 @@
     {
       "src": "api/index.js",
       "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["api/db.json"]
-      }
+      "config": { "includeFiles": ["api/db.json"] }
     },
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "config": { "distDir": "build" }
     }
   ],
   "routes": [
