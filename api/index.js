@@ -2,10 +2,11 @@ const jsonServer = require('json-server');
 const path = require('path');
 
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
-const middlewares = jsonServer.defaults();
 
 module.exports = (req, res) => {
-  if (req.method === 'GET' && req.url.startsWith('/agendamentos')) {
+  const url = req.url.replace(/^\/api/, '');
+
+  if (req.method === 'GET' && url === '/agendamentos') {
     const db = router.db.getState();
     const agendamentos = db.agendamentos || [];
     res.setHeader('Content-Type', 'application/json');
