@@ -128,9 +128,11 @@ export default function Login() {
       valido = false;
     }
 
-    if (valido) navegar("/app", { replace: true });
+    if (valido) {
+    localStorage.setItem("auth", "true");
+    navegar("/app", { replace: true });
+    }
   }
-
   return (
     <FormularioLogin onSubmit={aoEnviarFormulario}>
       <Cabecalho>
