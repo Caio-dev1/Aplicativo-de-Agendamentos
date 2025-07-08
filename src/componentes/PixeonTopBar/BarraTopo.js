@@ -33,7 +33,7 @@ function Barratopo() {
     <TopoBarraSecao>
       <AgendamentoTitulo />
       <PerfilWrapper>
-        <PerfilImage onClick={() => navegar("/login", { replace: true })} src={UsuarioPerfil} alt="Foto de Perfil de Usuário" />
+        <PerfilImage onClick={() => navegar("/", { replace: true })} src={UsuarioPerfil} alt="Foto de Perfil de Usuário" />
       </PerfilWrapper>
     </TopoBarraSecao>
   );
