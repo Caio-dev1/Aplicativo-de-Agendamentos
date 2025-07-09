@@ -2,6 +2,7 @@ import AgendamentoTitulo from "./AgendamentoTitulo";
 import styled from "styled-components";
 import UsuarioPerfil from "../../img/UsuarioPerfil.png";
 import { useNavigate } from "react-router-dom";
+import AgendamentoPesquisa from "./AgendamentoPesquisa";
 
 const TopoBarraSecao = styled.section`
   background-color: #ffffff;
@@ -32,6 +33,7 @@ function Barratopo() {
   return (
     <TopoBarraSecao>
       <AgendamentoTitulo />
+      <AgendamentoPesquisa />
       <PerfilWrapper>
         <PerfilImage onClick={() => navegar("/", { replace: true })} src={UsuarioPerfil} alt="Foto de Perfil de Usuário" />
       </PerfilWrapper>

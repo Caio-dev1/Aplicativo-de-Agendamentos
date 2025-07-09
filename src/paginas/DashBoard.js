@@ -42,20 +42,20 @@ const ContentRow = styled.div`
 const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
-    word-break: keep-all;
+  word-break: keep-all;
   overflow-wrap: normal;
 `;
 const RightColumn = styled.div`
- display: flex;
- background-color: #FFFFFF;
- width: 722px;
-height: 404px;
+  display: flex;
+  background-color: #ffffff;
+  width: 722px;
+  height: 404px;
 `;
 
 const ContainerBox = styled.div`
- display: flex;
- flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+`;
 
 function Dashboard() {
   const [agendamentos, setAgendamentos] = useState([]);
@@ -83,13 +83,20 @@ function Dashboard() {
           <ContentRow>
             <LeftColumn>
               <ContagemListagem agendamentos={agendamentos} />
-              <ListaAgendamentos agendamentos={agendamentos} diaSelecionado={diaSelecionado}/>
+              <ListaAgendamentos
+                agendamentos={agendamentos}
+                diaSelecionado={diaSelecionado}
+              />
             </LeftColumn>
             <ContainerBox>
-              <CalendarioTitulo Titulo="Calendario"/>
+              <CalendarioTitulo Titulo="Calendario" />
               <RightColumn>
-                <Calendario agendamentos={agendamentos} diaSelecionado={diaSelecionado} setDiaSelecionado={setDiaSelecionado}/>
-                <MonitoramentoDisco/>
+                <Calendario
+                  agendamentos={agendamentos}
+                  diaSelecionado={diaSelecionado}
+                  setDiaSelecionado={setDiaSelecionado}
+                />
+                <MonitoramentoDisco />
               </RightColumn>
             </ContainerBox>
           </ContentRow>
