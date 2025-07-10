@@ -25,12 +25,18 @@ const AgendamentosLista = styled.ul`
 
 const AgendamentoLi = styled.li``;
 
-function ListaAgendamentos({ agendamentos, diaSelecionado }) {
-    const agendamentosFiltrados = diaSelecionado
-    ? agendamentos.filter((a) =>
-        moment(a.Data).isSame(diaSelecionado, "day")
-      )
-    : agendamentos;
+function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
+  const agendamentosFiltrados = agendamentos
+    .filter((a) =>
+      diaSelecionado
+        ? moment(a.Data).isSame(diaSelecionado, "day")
+        : true
+    )
+    .filter((a) =>
+      termoBusca
+        ? a.Nome?.toLowerCase().includes(termoBusca.toLowerCase())
+        : true
+    );
 
   const agendamentosRenderizados = agendamentosFiltrados.slice(0, 5);
 

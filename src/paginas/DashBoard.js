@@ -26,8 +26,6 @@ const TopBar = styled.div`
   height: 120px;
   display: flex;
   align-items: center;
-  padding: 0 3rem;
-  box-sizing: border-box;
   margin-bottom: 2rem;
 `;
 const PageBody = styled.div`
@@ -60,6 +58,7 @@ const ContainerBox = styled.div`
 function Dashboard() {
   const [agendamentos, setAgendamentos] = useState([]);
   const [diaSelecionado, setDiaSelecionado] = useState(null);
+  const [termoBusca, setTermoBusca] = useState(""); 
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/agendamentos`)
@@ -77,7 +76,7 @@ function Dashboard() {
       </Sidebar>
       <MainContent>
         <TopBar>
-          <Barratopo />
+          <Barratopo setTermoBusca={setTermoBusca} />
         </TopBar>
         <PageBody>
           <ContentRow>
@@ -86,6 +85,7 @@ function Dashboard() {
               <ListaAgendamentos
                 agendamentos={agendamentos}
                 diaSelecionado={diaSelecionado}
+                termoBusca={termoBusca}
               />
             </LeftColumn>
             <ContainerBox>
