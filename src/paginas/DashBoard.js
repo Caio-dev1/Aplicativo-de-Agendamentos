@@ -58,7 +58,7 @@ const ContainerBox = styled.div`
 function Dashboard() {
   const [agendamentos, setAgendamentos] = useState([]);
   const [diaSelecionado, setDiaSelecionado] = useState(null);
-  const [termoBusca, setTermoBusca] = useState(""); 
+  const [termoBusca, setTermoBusca] = useState("");
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/agendamentos`)

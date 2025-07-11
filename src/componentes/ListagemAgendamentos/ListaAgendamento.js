@@ -5,6 +5,8 @@ import SetaConcluido from "../../img/SetaConcluido.png";
 import SetaAndamento from "../../img/SetaAndamento.png";
 import SetaExpirado from "../../img/SetaExpirado.png";
 import moment from "moment";
+import Popup from "../Popup";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -26,11 +28,10 @@ const AgendamentosLista = styled.ul`
 const AgendamentoLi = styled.li``;
 
 function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
+  const [popupLista, setPopupLista] = useState(false);
   const agendamentosFiltrados = agendamentos
     .filter((a) =>
-      diaSelecionado
-        ? moment(a.Data).isSame(diaSelecionado, "day")
-        : true
+      diaSelecionado ? moment(a.Data).isSame(diaSelecionado, "day") : true
     )
     .filter((a) =>
       termoBusca
@@ -38,8 +39,16 @@ function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
         : true
     );
 
-  const agendamentosRenderizados = agendamentosFiltrados.slice(0, 5);
+  useEffect(() => {
+    if (agendamentosFiltrados.length === 0) {
+      setPopupLista(true);
+    }
+    else {
+    setPopupLista(false);
+    }
+  }, [agendamentosFiltrados]);
 
+  const agendamentosRenderizados = agendamentosFiltrados.slice(0, 5);
   function handleStatusAgendamento(status) {
     switch (status) {
       case "C":
@@ -80,6 +89,12 @@ function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
             </AgendamentoLi>
           ))}
         </AgendamentosLista>
+        {popupLista && (
+          <Popup
+            onClose={() => setPopupLista(false)}
+            TextoBase={"Sem agendamentos para o filtro aplicado"}
+          />
+        )}
       </Container>
     </>
   );

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import Close from "../../img/Fechar.png";
-import Positivo from "../../img/Positivo.png";
+import Close from "../img/Fechar.png";
+import Positivo from "../img/Positivo.png";
 import { useEffect, useState } from "react";
 
 
@@ -80,22 +80,21 @@ const PopupH3 = styled.h3`
   margin: 0;
 `;
 
-function CalendarioPopup({ setPopup }) {
+function Popup({ onClose, TextoBase }) {
   const [isClosing, setIsClosing] = useState(false);
-
 
   useEffect(() => {
     const autoClose = setTimeout(() => {
       setIsClosing(true);
-      setTimeout(() => setPopup(false), 400);
+      setTimeout(() => onClose(), 400);
     }, 4000);
 
     return () => clearTimeout(autoClose);
-  }, [setPopup]);
+  }, [onClose]);
 
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(() => setPopup(false), 400);
+    setTimeout(() => onClose(), 400);
   };
 
   return (
@@ -103,11 +102,11 @@ function CalendarioPopup({ setPopup }) {
       <PopupImg src={Positivo} alt="Ícone de atenção" />
       <TextContainer>
         <PopupH3>Atenção!</PopupH3>
-        <PopupText>Não existem agendamentos para o dia selecionado.</PopupText>
+        <PopupText>{TextoBase}</PopupText>
       </TextContainer>
       <CloseButton onClick={handleClose} src={Close} alt="Fechar" />
     </PopupBox>
   );
 }
 
-export default CalendarioPopup;
+export default Popup;

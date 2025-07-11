@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CalendarioTable from "./CalendarioTable";
-import CalendarioPopup from "./CalendarioPopup";
+import Popup from "../Popup";
 import { useState } from "react";
 
 const CalendarioBox = styled.section`
@@ -14,7 +14,7 @@ function Calendario({ agendamentos, setDiaSelecionado, diaSelecionado }) {
         <CalendarioBox>
             <CalendarioTable setPopup={setPopup} agendamentos={agendamentos} diaSelecionado={diaSelecionado} setDiaSelecionado={setDiaSelecionado}/>
         </CalendarioBox>
-        {popup && <CalendarioPopup setPopup={setPopup}/>}
+        {popup && <Popup onClose={() => setPopup(false)} TextoBase={"Não existem agendamentos para o dia selecionado."}/>}
     </>
     );
 }
