@@ -15,30 +15,50 @@ Link do desafio no qual o projeto foi baseado: https://github.com/Pixeon/fronten
 
 O projeto pode ser visto no vercel, link: https://aplicativo-de-agendamentos.vercel.app/
 
-## Instalação
+## Instalação Local
 
-Se assim preferir, o projeto pode ser instalado localmente pelos seguintes passos:
+Siga os passos abaixo para rodar o projeto localmente na sua máquina:
 
-```sh
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/Caio-dev1/Aplicativo-de-Agendamentos.git
+cd Aplicativo-de-Agendamentos
+```
+
+### 2. Instale as dependências do front-end
+
+```bash
  npm install
 ```
 
-```sh
- Trocando pra pasta api: cd api
+### 3. Vá para a pasta da API e instale as dependências do back-end (JSON Server)
+
+```bash
+ cd api
  npm install
- json-server--watch db.json --port 3001
 ```
+
+### 4. Inicie o servidor JSON Server na porta 3001
+
+```bash
+ json-server --watch db.json --port 3001
+```
+
+### 5. Volte para pasta inicial e inicie o projeto.
 
 ```sh
- Volte novamente para pasta principal
- npm start
+    cd ..
+    npm start
 ```
+
+### 6. Acesse o projeto no navegador.
 
 ```sh
-Abra http://localhost:3000
+    Abra: http://localhost:3000
 ```
 
-## Requerimentos
+## Requisitos
 
 São necessárias as seguintes ferramentas pra rodar o projeto:
 
