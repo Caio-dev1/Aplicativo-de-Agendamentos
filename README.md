@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Projeto baseado em um desafio de processo seletivo, utilizado com fins de estudo e aprimoramento técnico.
+Projeto baseado em um desafio de processo seletivo, utilizado com fins de estudo e aprimoramento técnico.  
 Link do desafio no qual o projeto foi baseado: https://github.com/Pixeon/frontend-challenge
 
 ## Observações
