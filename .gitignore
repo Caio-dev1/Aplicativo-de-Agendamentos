@@ -4,7 +4,8 @@ api/node_modules/
 
 # Variáveis de ambiente
 .env
-.env.*
+.env.local
+.env.production
 
 # Build
 .next/
