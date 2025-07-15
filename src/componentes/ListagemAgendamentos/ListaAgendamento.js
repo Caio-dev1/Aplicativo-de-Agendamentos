@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import ItemAgendamento from "./ItemAgendamento";
 import ListaAgendamentoTitulo from "./ListaAgendamentoTitulo";
 import SetaConcluido from "../../img/SetaConcluido.png";
@@ -7,25 +6,7 @@ import SetaExpirado from "../../img/SetaExpirado.png";
 import moment from "moment";
 import Popup from "../Popup";
 import { useEffect, useState } from "react";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
-  margin-left: 1rem;
-`;
-
-const AgendamentosLista = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const AgendamentoLi = styled.li``;
+import * as S from "./StyledElements";
 
 function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
   const [popupLista, setPopupLista] = useState(false);
@@ -42,13 +23,13 @@ function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
   useEffect(() => {
     if (agendamentosFiltrados.length === 0) {
       setPopupLista(true);
-    }
-    else {
-    setPopupLista(false);
+    } else {
+      setPopupLista(false);
     }
   }, [agendamentosFiltrados]);
 
   const agendamentosRenderizados = agendamentosFiltrados.slice(0, 5);
+
   function handleStatusAgendamento(status) {
     switch (status) {
       case "C":
@@ -61,6 +42,7 @@ function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
         return "#CCCCCC";
     }
   }
+
   function handleStatusSeta(status) {
     switch (status) {
       case "C":
@@ -76,26 +58,26 @@ function ListaAgendamentos({ agendamentos, diaSelecionado, termoBusca }) {
 
   return (
     <>
-      <Container>
+      <S.Container>
         <ListaAgendamentoTitulo />
-        <AgendamentosLista>
+        <S.AgendamentosLista>
           {agendamentosRenderizados.map((item) => (
-            <AgendamentoLi key={item.id}>
+            <S.AgendamentoLi key={item.id}>
               <ItemAgendamento
                 item={item}
                 seta={handleStatusSeta(item.Status)}
                 corBase={handleStatusAgendamento(item.Status)}
               />
-            </AgendamentoLi>
+            </S.AgendamentoLi>
           ))}
-        </AgendamentosLista>
+        </S.AgendamentosLista>
         {popupLista && (
           <Popup
             onClose={() => setPopupLista(false)}
             TextoBase={"Sem agendamentos para o filtro aplicado"}
           />
         )}
-      </Container>
+      </S.Container>
     </>
   );
 }

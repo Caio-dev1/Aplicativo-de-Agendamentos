@@ -1,52 +1,12 @@
-import styled from "styled-components";
 import moment from "moment";
 import { useState, useMemo } from "react";
 import CalendarioTitulo from "./CalendarioTitulo";
 import SetaDireita from "../../img/SetaDireita.png";
 import SetaEsquerda from "../../img/SetaEsquerda.png";
 import "moment/locale/pt-br";
+import * as S from "./StyledElements";
 
 moment.locale("pt-br");
-
-const TableWrapper = styled.div`
-  padding: 14px 32px 32px 32px;
-`;
-
-const TableCalendario = styled.table`
-  border-collapse: separate;
-  text-align: center;
-  border-spacing: 8px;
-  font-family: Poppins;
-`;
-
-const CaptionWrapper = styled.caption`
-  caption-side: top;
-`;
-
-const CabecalhoFlex = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 0 40px;
-`;
-
-const Seta = styled.img`
-  cursor: pointer;
-`;
-
-const ThCabecalho = styled.th`
-  color: #a098ae;
-  font-weight: 400;
-`;
-
-const TdDia = styled.td`
-  padding: 6px 10px 8px 10px;
-  border-radius: 9px;
-  background-color: ${({ bg }) => bg || "transparent"};
-  color: ${({ foraMes, domingo }) =>
-    foraMes ? "#bbb" : domingo ? "#FC6B57" : "#000"};
-`;
 
 function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado, setPopup }) {
   const [dataAtual, setDataAtual] = useState(moment());
@@ -93,28 +53,28 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado, setP
   });
 
   return (
-    <TableWrapper>
-      <TableCalendario>
-        <CaptionWrapper>
-          <CabecalhoFlex>
-            <Seta
+    <S.TableWrapper>
+      <S.TableCalendario>
+        <S.CaptionWrapper>
+          <S.CabecalhoFlex>
+            <S.Seta
               src={SetaEsquerda}
               alt="Seta Esquerda"
               onClick={() => mudarMes("anterior")}
             />
             <CalendarioTitulo Titulo={dataAtual.format("MMMM")} />
-            <Seta
+            <S.Seta
               src={SetaDireita}
               alt="Seta Direita"
               onClick={() => mudarMes("proximo")}
             />
-          </CabecalhoFlex>
-        </CaptionWrapper>
+          </S.CabecalhoFlex>
+        </S.CaptionWrapper>
 
         <thead>
           <tr>
             {["M", "T", "W", "T", "F", "S", "S"].map((dia, idx) => (
-              <ThCabecalho key={idx}>{dia}</ThCabecalho>
+              <S.ThCabecalho key={idx}>{dia}</S.ThCabecalho>
             ))}
           </tr>
         </thead>
@@ -133,7 +93,7 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado, setP
                 const domingo = dia.day() === 0;
 
                 return (
-                  <TdDia
+                  <S.TdDia
                     key={i}
                     bg={bg}
                     foraMes={foraMes}
@@ -157,17 +117,16 @@ function CalendarioTable({ agendamentos, setDiaSelecionado, diaSelecionado, setP
                         }
                       }
                     }}
-                    style={{ cursor: "pointer" }}
                   >
                     {dia.date()}
-                  </TdDia>
+                  </S.TdDia>
                 );
               })}
             </tr>
           ))}
         </tbody>
-      </TableCalendario>
-    </TableWrapper>
+      </S.TableCalendario>
+    </S.TableWrapper>
   );
 }
 

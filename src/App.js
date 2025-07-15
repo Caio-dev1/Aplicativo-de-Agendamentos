@@ -3,6 +3,7 @@ import Login from "./paginas/Login";
 import Dashboard from "./paginas/DashBoard";
 import Autenticacao from "./componentes/Autenticacao";
 import Pagina404 from "./paginas/404_Erro";
+import { AgendamentoProvider } from './componentes/Contexts/AgendamentoContext';   
 
 export default function App() {
   return (
@@ -13,7 +14,9 @@ export default function App() {
           path="/app/*"
           element={
             <Autenticacao>
+              <AgendamentoProvider>
               <Dashboard />
+              </AgendamentoProvider>
             </Autenticacao>
           }
         />

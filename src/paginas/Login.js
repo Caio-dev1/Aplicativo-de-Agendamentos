@@ -1,86 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-
 import PixeonLogo from "../img/PixeonLogo.png";
 import EmailSVG from "../img/Email.svg";
 import CadeadoSVG from "../img/Cadeado.svg";
-
-const FormularioLogin = styled.form`
-  font-family: Poppins, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 520px;
-  height: 500px;
-  margin: 13rem auto;
-  background-color: #ffffff;
-  border-radius: 8px;
-  gap: 14px;
-`;
-
-const TituloLogin = styled.h2`
-  margin: 0;
-  font-size: 21px;
-  color: #374557;
-`;
-
-const InputWrapper = styled.div`
-  position: relative;
-  width: 75%;
-  margin-bottom: 10px;
-`;
-
-const Icone = styled.img`
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 22px;
-  height: 22px;
-  pointer-events: none;
-`;
-
-const Logo = styled.img``;
-
-const InputLogin = styled.input`
-  width: 86%;
-  padding: 10px 12px 10px 42px;
-  font-size: 16px;
-  border: 1px solid ${({ erro }) => (erro ? "#e74c3c" : "#374557")};
-  box-shadow: 0 0 4px rgba(55, 69, 87, 0.4);
-  border-radius: 4px;
-  color: #374557;
-`;
-
-const BotaoLogin = styled.button`
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-  width: 75%;
-  border-radius: 5px;
-  background-color: #4cbc9a;
-  box-shadow: 0 0 4px rgba(55, 69, 87, 0.4);
-  border: none;
-  font-family: inherit;
-  color: #fff;
-`;
-
-const Cabecalho = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  text-align: center;
-  margin-bottom: 2rem;
-`;
-
-const MensagemErro = styled.small`
-  color: #e74c3c;
-  display: ${({ mostrar }) => (mostrar ? "block" : "none")};
-  position: absolute;
-  text-align: left;
-`;
+import * as S from "./StyledElements";
 
 export default function Login() {
   const navegar = useNavigate();
@@ -129,19 +52,20 @@ export default function Login() {
     }
 
     if (valido) {
-    localStorage.setItem("auth", "true");
-    navegar("/app", { replace: true });
+      localStorage.setItem("auth", "true");
+      navegar("/app", { replace: true });
     }
   }
+
   return (
-    <FormularioLogin onSubmit={aoEnviarFormulario}>
-      <Cabecalho>
-        <Logo src={PixeonLogo} alt="Logo da Pixeon" />
-        <TituloLogin>Faça seu Login</TituloLogin>
-      </Cabecalho>
-      <InputWrapper>
-        <Icone src={EmailSVG} alt="E-mail" />
-        <InputLogin
+    <S.FormularioLogin onSubmit={aoEnviarFormulario}>
+      <S.Cabecalho>
+        <S.Logo src={PixeonLogo} alt="Logo da Pixeon" />
+        <S.TituloLogin>Faça seu Login</S.TituloLogin>
+      </S.Cabecalho>
+      <S.InputWrapper>
+        <S.Icone src={EmailSVG} alt="E-mail" />
+        <S.InputLogin
           placeholder="Email"
           required
           value={email}
@@ -151,11 +75,11 @@ export default function Login() {
           }}
           erro={erroEmail}
         />
-        <MensagemErro mostrar={erroEmail}>E-mail inválido</MensagemErro>
-      </InputWrapper>
-      <InputWrapper>
-        <Icone src={CadeadoSVG} alt="Senha" />
-        <InputLogin
+        <S.MensagemErro mostrar={erroEmail}>E-mail inválido</S.MensagemErro>
+      </S.InputWrapper>
+      <S.InputWrapper>
+        <S.Icone src={CadeadoSVG} alt="Senha" />
+        <S.InputLogin
           type="password"
           placeholder="Senha"
           required
@@ -166,11 +90,11 @@ export default function Login() {
           }}
           erro={erroSenha}
         />
-        <MensagemErro mostrar={erroSenha}>
+        <S.MensagemErro mostrar={erroSenha}>
           Senha precisa ter ao menos 6 caracteres
-        </MensagemErro>
-      </InputWrapper>
-      <BotaoLogin type="submit">Entrar</BotaoLogin>
-    </FormularioLogin>
+        </S.MensagemErro>
+      </S.InputWrapper>
+      <S.BotaoLogin type="submit">Entrar</S.BotaoLogin>
+    </S.FormularioLogin>
   );
 }

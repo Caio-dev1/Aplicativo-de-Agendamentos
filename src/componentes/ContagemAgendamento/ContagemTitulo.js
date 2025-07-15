@@ -1,16 +1,7 @@
-import styled from "styled-components";
-
-const TituloContagem = styled.h3`
-  font-family: Poppins;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  color: #374557;
-`;
+import * as S from "./StyledElements";
 
 function ContagemTitulo() {
-  return <TituloContagem>Exames Concluídos/Andamento</TituloContagem>;
+  return <S.TituloContagem>Exames Concluídos/Andamento</S.TituloContagem>;
 }
 
 export default ContagemTitulo;
