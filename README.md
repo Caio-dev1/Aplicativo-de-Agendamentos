@@ -4,12 +4,14 @@
 
 <p align="left">
 Projeto baseado em um desafio de processo seletivo, utilizado com fins de estudo e aprimoramento técnico.
-Idealizado para monitores de 1920x1080 ou superior.
-Baseado em um desafio de processo seletivo, utilizado com fins de estudo e aprimoramento técnico
 Link do desafio no qual o projeto foi baseado: https://github.com/Pixeon/frontend-challenge
 </p>
 
-## Onde ver o projeto?
+## Observações
+
+<p align="left">Idealizado para monitores de 1920x1080 ou superior.</p>
+
+## Onde posso ver o projeto?
 
 O projeto pode ser visto no vercel, link: https://aplicativo-de-agendamentos.vercel.app/
 
