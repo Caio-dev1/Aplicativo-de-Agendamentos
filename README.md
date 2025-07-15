@@ -2,14 +2,12 @@
 
 ## Descrição do Projeto
 
-<p align="left">
-Projeto baseado em um desafio de processo seletivo, utilizado com fins de estudo e aprimoramento técnico.</break>
+Projeto baseado em um desafio de processo seletivo, utilizado com fins de estudo e aprimoramento técnico.
 Link do desafio no qual o projeto foi baseado: https://github.com/Pixeon/frontend-challenge
-</p>
 
 ## Observações
 
-<p align="left">Idealizado para monitores de resolução 1920x1080 ou superior.</p>
+Idealizado para monitores de resolução 1920x1080 ou superior.
 
 ## Onde posso ver o projeto?
 
